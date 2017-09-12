@@ -10,8 +10,13 @@ import {
 const routes = [
   {
     method: 'GET',
-    path: '/lessons/byclass/{classId}',
-    handler: Handlers.getLessonsByClass
+    path: '/lessons',
+    handler: Handlers.getAllLessons
+  },
+  {
+    method: 'GET',
+    path: '/lessons/today',
+    handler: Handlers.getAllLessonsToday
   },
   {
     method: 'GET',

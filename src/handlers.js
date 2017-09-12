@@ -8,11 +8,14 @@ import {
 
 class Handlers {
   @ReplyPromiseResponse
-  static async getLessonsByClass(request) {
-    const { classId: class_id } = request.params;
+  static async getAllLessons(request) {
+    return r.table(env.DB_TABLE_NAME)
+  }
+
+  @ReplyPromiseResponse
+  static async getAllLessonsToday() {
     const today = dateformat(Date.now(), 'dddd');
     return r.table(env.DB_TABLE_NAME).filter({
-      class_id,
       day: today
     })
   }
